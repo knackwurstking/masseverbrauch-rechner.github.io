@@ -1,0 +1,134 @@
+<!doctype html>
+<html style="width:100%;height:100%;" data-theme="auto" lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="author" content>
+    <meta name="description" content="Ein einfacher Rechner für den Masseverbrauch für Presse 0.">
+    <meta name="theme-color" content="#2d2c2c">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta property="og:url" content="https://">
+    <meta property="og:title" content>
+    <meta property="og:description" content="Ein einfacher Rechner für den Masseverbrauch für Presse 0.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://">
+    <title></title>
+    <link rel="icon" href="https://raw.githubusercontent.com/maxence-charriere/go-app/master/docs/web/icon.svg">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/maxence-charriere/go-app/master/docs/web/icon.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link href="/app.css" type="text/css" rel="stylesheet">
+    <link href="/web/ui-v2.0.0.css" type="text/css" rel="stylesheet">
+    <script defer src="/wasm_exec.js"></script>
+    <script defer src="/app.js"></script>
+  </head>
+  <body style="width:100%;height:100%;" class="ui-container">
+    <div class="ui-flex justify-center align-center" style="height:fit-content;min-height:100%;width:100%;">
+      <form style="width:100%;">
+        <div class="ui-flex-grid-row" style="--justify:space-between;--align:center;padding:var(--ui-spacing);">
+          <label for="main-flow">Flow</label>
+          <input id="main-flow" style="width:12ch;" type="float" step="0.1000" value="1.5" min="0.0000">
+        </div>
+        <div class="ui-flex-grid-row" style="--align:center;padding:var(--ui-spacing);--justify:space-between;">
+          <label for="main-runtime">Laufzeit der Hauptmasse (Minuten)</label>
+          <input value="0.00" min="0.0000" id="main-runtime" style="width:12ch;" type="float" step="0.0100">
+        </div>
+        <div class="ui-flex-grid-row">
+          <div class="ui-flex-grid" style="--align:center;--gap:0;padding:var(--ui-spacing);">
+            <label style="text-align:center;" for="tower-slot-1-before">A / B - KG vor der Messung</label>
+            <input style="width:12ch;text-align:center;" type="float" step="0.0100" value="0.00" id="tower-slot-1-before">
+          </div>
+          <div class="ui-flex-grid" style="padding:var(--ui-spacing);--align:center;--gap:0;">
+            <label style="text-align:center;" for="tower-slot-1-after">A / B - KG nach der Messung</label>
+            <input id="tower-slot-1-after" style="width:12ch;text-align:center;" type="float" step="0.0100" value="0.00">
+          </div>
+        </div>
+        <div class="ui-flex-grid-row">
+          <div class="ui-flex-grid" style="--align:center;--gap:0;padding:var(--ui-spacing);">
+            <label style="text-align:center;" for="tower-slot-2-before">C / D - KG vor der Messung</label>
+            <input style="width:12ch;text-align:center;" type="float" step="0.0100" value="0.00" id="tower-slot-2-before">
+          </div>
+          <div class="ui-flex-grid" style="padding:var(--ui-spacing);--align:center;--gap:0;">
+            <label style="text-align:center;" for="tower-slot-2-after">C / D - KG nach der Messung</label>
+            <input id="tower-slot-2-after" style="width:12ch;text-align:center;" type="float" step="0.0100" value="0.00">
+          </div>
+        </div>
+        <div class="ui-flex-grid-row">
+          <div class="ui-flex-grid" style="--align:center;--gap:0;padding:var(--ui-spacing);">
+            <label style="text-align:center;" for="tower-slot-3-before">E / F - KG vor der Messung</label>
+            <input id="tower-slot-3-before" style="width:12ch;text-align:center;" type="float" step="0.0100" value="0.00">
+          </div>
+          <div class="ui-flex-grid" style="--align:center;--gap:0;padding:var(--ui-spacing);">
+            <label style="text-align:center;" for="tower-slot-3-after">E / F - KG nach der Messung</label>
+            <input id="tower-slot-3-after" style="width:12ch;text-align:center;" type="float" step="0.0100" value="0.00">
+          </div>
+        </div>
+        <div class="ui-flex-grid-row">
+          <div class="ui-flex-grid" style="--align:center;--gap:0;padding:var(--ui-spacing);">
+            <label style="text-align:center;" for="tower-slot-4-before">G / H - KG vor der Messung</label>
+            <input style="width:12ch;text-align:center;" type="float" step="0.0100" value="0.00" id="tower-slot-4-before">
+          </div>
+          <div style="--align:center;--gap:0;padding:var(--ui-spacing);" class="ui-flex-grid">
+            <label style="text-align:center;" for="tower-slot-4-after">G / H - KG nach der Messung</label>
+            <input step="0.0100" value="0.00" id="tower-slot-4-after" style="width:12ch;text-align:center;" type="float">
+          </div>
+        </div>
+        <div class="ui-flex-grid-row">
+          <div class="ui-flex-grid" style="--align:center;--gap:0;padding:var(--ui-spacing);">
+            <label style="text-align:center;" for="tower-slot-5-before">I / J - KG vor der Messung</label>
+            <input value="0.00" id="tower-slot-5-before" style="width:12ch;text-align:center;" type="float" step="0.0100">
+          </div>
+          <div class="ui-flex-grid" style="--align:center;--gap:0;padding:var(--ui-spacing);">
+            <label style="text-align:center;" for="tower-slot-5-after">I / J - KG nach der Messung</label>
+            <input id="tower-slot-5-after" style="width:12ch;text-align:center;" type="float" step="0.0100" value="0.00">
+          </div>
+        </div>
+        <div class="ui-flex-grid-row" style="--justify:flex-end;--align:center;padding:var(--ui-spacing);">
+          <input formnovalidate type="reset">
+          <input type="submit">
+        </div>
+      </form>
+      <dialog>
+        <div class="ui-flex-grid">
+          <h5>Hauptmasse</h5>
+          <div class="ui-flex-grid-row ui-flex-grid-item">
+            <span>0.000 KG</span>
+            <span>0.000 %</span>
+          </div>
+          <h5>Zusatzmasse</h5>
+          <div class="ui-flex-grid-row ui-flex-grid-item">
+            <h5 style="width:6ch;">A / B:</h5>
+            <span>0.000 KG</span>
+            <span>0.000 %</span>
+          </div>
+          <div class="ui-flex-grid-row ui-flex-grid-item">
+            <h5 style="width:6ch;">C / D:</h5>
+            <span>0.000 KG</span>
+            <span>0.000 %</span>
+          </div>
+          <div class="ui-flex-grid-row ui-flex-grid-item">
+            <h5 style="width:6ch;">E / F:</h5>
+            <span>0.000 KG</span>
+            <span>0.000 %</span>
+          </div>
+          <div class="ui-flex-grid-row ui-flex-grid-item">
+            <h5 style="width:6ch;">G / H:</h5>
+            <span>0.000 KG</span>
+            <span>0.000 %</span>
+          </div>
+          <div class="ui-flex-grid-row ui-flex-grid-item">
+            <h5 style="width:6ch;">I / J:</h5>
+            <span>0.000 KG</span>
+            <span>0.000 %</span>
+          </div>
+        </div>
+      </dialog>
+      <div style="bottom:0;left:0;font-size:0.75rem;--mono:1;position:absolute;">
+        <span>v0.1.0 [Build: 1]</span>
+      </div>
+    </div>
+    <aside id="app-wasm-loader" class="goapp-app-info">
+      <img id="app-wasm-loader-icon" class="goapp-logo goapp-spin" alt="wasm loader icon" src="https://raw.githubusercontent.com/maxence-charriere/go-app/master/docs/web/icon.png">
+      <p id="app-wasm-loader-label" class="goapp-label">0%</p>
+    </aside>
+  </body>
+</html>
